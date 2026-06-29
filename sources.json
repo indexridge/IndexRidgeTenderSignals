@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Contracts Finder OCDS Search API",
+    "owner": "Cabinet Office / Crown Commercial Service",
+    "api_url_template": "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search?publishedFrom={published_from}&publishedTo={published_to}&stages=planning,tender",
+    "documentation_url": "https://www.contractsfinder.service.gov.uk/apidocumentation/Notices/1/GET-Published-Notice-OCDS-Search",
+    "licence": "Open Government Licence v3.0 / official OCDS feed licence metadata",
+    "attribution": "Cabinet Office / Crown copyright as provided by the official feed",
+    "status": "approved_for_mvp_sample",
+    "notes": "Use notice metadata, summaries, classifications, deadline, buyer, value and official notice links. Do not copy tender attachments or proprietary third-party data."
+  }
+]

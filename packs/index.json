@@ -1,0 +1,24 @@
+{
+  "generated_at_utc": "2026-06-29T07:44:58+00:00",
+  "disclaimer": "Informational public-data monitoring only; not legal, procurement, bid-writing, financial, investment, tax, compliance, planning, engineering, environmental, or regulatory advice. Verify against the official notice before acting.",
+  "packs": [
+    {
+      "name": "Procurement opportunities sample pack",
+      "file": "data-pack-procurement-opportunities.csv",
+      "records": 93,
+      "description": "Matched UK public-sector tender and planning notices from official open data."
+    },
+    {
+      "name": "Green energy tender sample pack",
+      "file": "data-pack-green-energy-tenders.csv",
+      "records": 7,
+      "description": "Tender notices with solar, battery, EV charging, retrofit, net-zero, energy-efficiency or related signals."
+    },
+    {
+      "name": "Accessibility/digital tender sample pack",
+      "file": "data-pack-accessibility-digital-tenders.csv",
+      "records": 12,
+      "description": "Tender notices with website, digital platform, accessibility, WCAG, inclusive design or software signals."
+    }
+  ]
+}
