@@ -5,3 +5,4 @@ __pycache__/
 .venv/
 outputs/
 commerce/gumroad_upload/
+commerce/gumroad_product_manifest.json

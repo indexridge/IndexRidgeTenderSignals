@@ -5,7 +5,7 @@ Public beta MVP for two low-interaction products:
 1. **UK tender/procurement micro-alerts** — niche public-sector tender monitoring for renewable energy, EV charging, retrofit, digital/accessibility, and SME-suitable opportunities.
 2. **Downloadable public-data packs** — CSV/JSON/ZIP sample packs generated from approved official/open data sources.
 
-No paid checkout, signup, analytics, ads, or outreach are active in this beta.
+Gumroad checkout is active for the first one-off starter data pack. No signup form, analytics, ads, outbound outreach, calls, bespoke support, or subscription product is active.
 
 ## Low-risk operating rules
 
@@ -53,14 +53,13 @@ Public files in `packs/` are preview samples; the Gumroad upload ZIP is not link
 
 There is no canonical suite. Use targeted ad-hoc verification for local/public-page changes: Python compile, data fetch, CSV schema/category checks, source licence checks, GitHub Pages `built`, live HTTP 200, expected homepage/data-pack/privacy/terms markers, and clean git tracking status.
 
-## Monetisation gate
+## Monetisation status
 
-Before making this paid:
-
-- Add at least one payment platform account/product approved by the user.
-- Add support/refund/cancellation wording.
-- Decide whether the first paid offer is a tender-alert subscription, a one-off data-pack download, or both.
-- Review source coverage and do not claim completeness.
+- First paid product: Gumroad one-off starter data pack.
+- Gumroad URL: `https://indexridge.gumroad.com/l/indexridge-uk-tender-signals-starter-pack`
+- Product price: £9.
+- Current public checkout is self-serve only; no subscription, outreach, ads, calls, bespoke support, or managed procurement service is active.
+- Keep source coverage conservative and do not claim completeness.
 
 ## Commerce setup docs
 

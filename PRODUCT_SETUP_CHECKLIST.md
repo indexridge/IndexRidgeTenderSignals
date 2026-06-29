@@ -22,7 +22,15 @@ Free public beta only: no payment, no signup, no analytics, no ads, and no outre
 - [x] Prepare Payhip click-by-click fallback/direct-checkout instructions.
 - [x] Decide first paid SKU: one-off UK Tender Signals Starter Pack.
 - [x] Draft support/refund/cancellation wording.
-- [ ] User approves exact platform/copy before publication.
+- [x] User approved Gumroad listing/upload.
+- [x] Publish one-off Gumroad digital product.
+- [x] Add Gumroad checkout link to public Pages site.
+
+## Phase 3 — active paid offer limits
+
+- [x] Active paid offer is a one-off Gumroad ZIP download at £9.
+- [x] No subscription, ads, analytics, email signup, outbound outreach, calls, or bespoke service is active.
+- [x] Support remains limited to file-access issues and obvious export errors through the marketplace platform.
 
 ## Do-not-do list
 

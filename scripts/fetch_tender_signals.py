@@ -316,7 +316,7 @@ def write_outputs(signals: list[TenderSignal], payload: dict, days: int, public_
     public_signals = signals[:public_preview_limit]
 
     public_counts = _write_pack_files(PACKS_DIR, public_signals, generated_at, days, "public preview sample")
-    full_counts = _write_pack_files(OUTPUTS_DIR, signals, generated_at, days, "full local Gumroad upload dataset")
+    full_counts = _write_pack_files(OUTPUTS_DIR, signals, generated_at, days, "full paid download dataset")
 
     licence_payload = {
         "generated_at_utc": generated_at,

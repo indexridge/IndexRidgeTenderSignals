@@ -1,6 +1,6 @@
 # Tender Signals Sample Digest
 
-Generated: 2026-06-29T08:39:18+00:00
+Generated: 2026-06-29T08:54:16+00:00
 Dataset: public preview sample
 Source window: last 30 days from Contracts Finder OCDS Search API
 Matching records shown: 20
