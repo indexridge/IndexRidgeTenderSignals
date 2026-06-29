@@ -1,6 +1,5 @@
-# IndexRidge public-data pack sample
+# IndexRidge public-data pack preview sample
 
-Generated: 2026-06-29T07:44:58+00:00
 Source: Contracts Finder OCDS Search API.
 Licence metadata: see source_licences.json.
 

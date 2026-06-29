@@ -16,10 +16,12 @@ Free public beta only: no payment, no signup, no analytics, no ads, and no outre
 
 ## Phase 2 — monetisation prep, still no payment active
 
-- [ ] Choose payment platform: Gumroad, Payhip, Stripe, or Lemon Squeezy.
-- [ ] Draft checkout copy with mandatory disclaimer.
-- [ ] Draft support/refund/cancellation wording.
-- [ ] Decide first paid SKU: monthly tender alerts, one-off data packs, or both.
+- [x] Choose first payment platform: Gumroad.
+- [x] Draft checkout copy with mandatory disclaimer.
+- [x] Prepare local Gumroad upload ZIP.
+- [x] Prepare Payhip click-by-click fallback/direct-checkout instructions.
+- [x] Decide first paid SKU: one-off UK Tender Signals Starter Pack.
+- [x] Draft support/refund/cancellation wording.
 - [ ] User approves exact platform/copy before publication.
 
 ## Do-not-do list

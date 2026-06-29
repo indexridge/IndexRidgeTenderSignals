@@ -21,6 +21,7 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parents[1]
 PACKS_DIR = ROOT / "packs"
 OUTPUTS_DIR = ROOT / "outputs"
+GUMROAD_UPLOAD_DIR = ROOT / "commerce" / "gumroad_upload"
 API_URL = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search"
 DOC_URL = "https://www.contractsfinder.service.gov.uk/apidocumentation/Notices/1/GET-Published-Notice-OCDS-Search"
 
@@ -198,59 +199,36 @@ def write_csv(path: Path, signals: list[TenderSignal]) -> None:
         writer.writerows(asdict(s) for s in signals)
 
 
-def write_outputs(signals: list[TenderSignal], payload: dict, days: int) -> None:
-    PACKS_DIR.mkdir(parents=True, exist_ok=True)
-    OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
-    generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+def _write_record_json(path: Path, signals: list[TenderSignal], generated_at: str, days: int, label: str) -> None:
     rows = [asdict(signal) for signal in signals]
-
-    # Main sample files.
-    for base in (PACKS_DIR, OUTPUTS_DIR):
-        write_csv(base / "tender_signals_sample.csv", signals)
-        (base / "tender_signals_sample.json").write_text(
-            json.dumps(
-                {
-                    "generated_at_utc": generated_at,
-                    "source": "Contracts Finder OCDS Search API",
-                    "source_documentation": DOC_URL,
-                    "days": days,
-                    "record_count": len(signals),
-                    "disclaimer": DISCLAIMER,
-                    "records": rows,
-                },
-                indent=2,
-                ensure_ascii=False,
-            )
-            + "\n",
-            encoding="utf-8",
+    path.write_text(
+        json.dumps(
+            {
+                "generated_at_utc": generated_at,
+                "source": "Contracts Finder OCDS Search API",
+                "source_documentation": DOC_URL,
+                "days": days,
+                "record_count": len(signals),
+                "dataset_label": label,
+                "disclaimer": DISCLAIMER,
+                "records": rows,
+            },
+            indent=2,
+            ensure_ascii=False,
         )
+        + "\n",
+        encoding="utf-8",
+    )
 
-    # Product-specific data pack CSVs.
-    procurement_pack = signals
-    green_pack = [s for s in signals if "green_energy" in s.categories.split(";")]
-    accessibility_pack = [s for s in signals if "accessibility_digital" in s.categories.split(";")]
-    write_csv(PACKS_DIR / "data-pack-procurement-opportunities.csv", procurement_pack)
-    write_csv(PACKS_DIR / "data-pack-green-energy-tenders.csv", green_pack)
-    write_csv(PACKS_DIR / "data-pack-accessibility-digital-tenders.csv", accessibility_pack)
 
-    licence_payload = {
-        "generated_at_utc": generated_at,
-        "source": "Contracts Finder OCDS Search API",
-        "documentation_url": DOC_URL,
-        "publisher": payload.get("publisher"),
-        "licence": payload.get("license") or "Open Government Licence v3.0",
-        "publication_policy": payload.get("publicationPolicy"),
-        "disclaimer": DISCLAIMER,
-    }
-    for base in (PACKS_DIR, OUTPUTS_DIR):
-        (base / "source_licences.json").write_text(json.dumps(licence_payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
+def _write_markdown(path: Path, signals: list[TenderSignal], generated_at: str, days: int, label: str) -> None:
     md_lines = [
         "# Tender Signals Sample Digest",
         "",
         f"Generated: {generated_at}",
+        f"Dataset: {label}",
         f"Source window: last {days} days from Contracts Finder OCDS Search API",
-        f"Matching records: {len(signals)}",
+        f"Matching records shown: {len(signals)}",
         "",
         f"> {DISCLAIMER}",
         "",
@@ -272,40 +250,37 @@ def write_outputs(signals: list[TenderSignal], payload: dict, days: int) -> None
                 "",
             ]
         )
-    for base in (PACKS_DIR, OUTPUTS_DIR):
-        (base / "tender_signals_sample.md").write_text("\n".join(md_lines), encoding="utf-8")
+    path.write_text("\n".join(md_lines), encoding="utf-8")
 
-    catalog = {
-        "generated_at_utc": generated_at,
-        "disclaimer": DISCLAIMER,
-        "packs": [
-            {
-                "name": "Procurement opportunities sample pack",
-                "file": "data-pack-procurement-opportunities.csv",
-                "records": len(procurement_pack),
-                "description": "Matched UK public-sector tender and planning notices from official open data.",
-            },
-            {
-                "name": "Green energy tender sample pack",
-                "file": "data-pack-green-energy-tenders.csv",
-                "records": len(green_pack),
-                "description": "Tender notices with solar, battery, EV charging, retrofit, net-zero, energy-efficiency or related signals.",
-            },
-            {
-                "name": "Accessibility/digital tender sample pack",
-                "file": "data-pack-accessibility-digital-tenders.csv",
-                "records": len(accessibility_pack),
-                "description": "Tender notices with website, digital platform, accessibility, WCAG, inclusive design or software signals.",
-            },
-        ],
+
+def _split_packs(signals: list[TenderSignal]) -> tuple[list[TenderSignal], list[TenderSignal], list[TenderSignal]]:
+    procurement_pack = signals
+    green_pack = [s for s in signals if "green_energy" in s.categories.split(";")]
+    accessibility_pack = [s for s in signals if "accessibility_digital" in s.categories.split(";")]
+    return procurement_pack, green_pack, accessibility_pack
+
+
+def _write_pack_files(base: Path, signals: list[TenderSignal], generated_at: str, days: int, label: str) -> dict[str, int]:
+    base.mkdir(parents=True, exist_ok=True)
+    write_csv(base / "tender_signals_sample.csv", signals)
+    _write_record_json(base / "tender_signals_sample.json", signals, generated_at, days, label)
+    _write_markdown(base / "tender_signals_sample.md", signals, generated_at, days, label)
+    procurement_pack, green_pack, accessibility_pack = _split_packs(signals)
+    write_csv(base / "data-pack-procurement-opportunities.csv", procurement_pack)
+    write_csv(base / "data-pack-green-energy-tenders.csv", green_pack)
+    write_csv(base / "data-pack-accessibility-digital-tenders.csv", accessibility_pack)
+    return {
+        "procurement": len(procurement_pack),
+        "green_energy": len(green_pack),
+        "accessibility_digital": len(accessibility_pack),
     }
-    (PACKS_DIR / "index.json").write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
+
+def _write_zip(base: Path, zip_path: Path, title: str) -> None:
     readme = "\n".join(
         [
-            "# IndexRidge public-data pack sample",
+            f"# {title}",
             "",
-            f"Generated: {generated_at}",
             "Source: Contracts Finder OCDS Search API.",
             "Licence metadata: see source_licences.json.",
             "",
@@ -320,8 +295,7 @@ def write_outputs(signals: list[TenderSignal], payload: dict, days: int) -> None
             "",
         ]
     )
-    (PACKS_DIR / "README.txt").write_text(readme, encoding="utf-8")
-    zip_path = PACKS_DIR / "indexridge-public-data-pack-sample.zip"
+    (base / "README.txt").write_text(readme, encoding="utf-8")
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z:
         for name in [
             "README.txt",
@@ -331,24 +305,112 @@ def write_outputs(signals: list[TenderSignal], payload: dict, days: int) -> None
             "tender_signals_sample.json",
             "source_licences.json",
         ]:
-            z.write(PACKS_DIR / name, arcname=name)
+            z.write(base / name, arcname=name)
+
+
+def write_outputs(signals: list[TenderSignal], payload: dict, days: int, public_preview_limit: int) -> Path:
+    PACKS_DIR.mkdir(parents=True, exist_ok=True)
+    OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+    GUMROAD_UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+    generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    public_signals = signals[:public_preview_limit]
+
+    public_counts = _write_pack_files(PACKS_DIR, public_signals, generated_at, days, "public preview sample")
+    full_counts = _write_pack_files(OUTPUTS_DIR, signals, generated_at, days, "full local Gumroad upload dataset")
+
+    licence_payload = {
+        "generated_at_utc": generated_at,
+        "source": "Contracts Finder OCDS Search API",
+        "documentation_url": DOC_URL,
+        "publisher": payload.get("publisher"),
+        "licence": payload.get("license") or "Open Government Licence v3.0",
+        "publication_policy": payload.get("publicationPolicy"),
+        "disclaimer": DISCLAIMER,
+    }
+    for base in (PACKS_DIR, OUTPUTS_DIR):
+        (base / "source_licences.json").write_text(json.dumps(licence_payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    catalog = {
+        "generated_at_utc": generated_at,
+        "disclaimer": DISCLAIMER,
+        "public_preview_limit": public_preview_limit,
+        "full_local_records": len(signals),
+        "packs": [
+            {
+                "name": "Procurement opportunities sample pack",
+                "file": "data-pack-procurement-opportunities.csv",
+                "records": public_counts["procurement"],
+                "full_local_records": full_counts["procurement"],
+                "description": "Matched UK public-sector tender and planning notices from official open data.",
+            },
+            {
+                "name": "Green energy tender sample pack",
+                "file": "data-pack-green-energy-tenders.csv",
+                "records": public_counts["green_energy"],
+                "full_local_records": full_counts["green_energy"],
+                "description": "Tender notices with solar, battery, EV charging, retrofit, net-zero, energy-efficiency or related signals.",
+            },
+            {
+                "name": "Accessibility/digital tender sample pack",
+                "file": "data-pack-accessibility-digital-tenders.csv",
+                "records": public_counts["accessibility_digital"],
+                "full_local_records": full_counts["accessibility_digital"],
+                "description": "Tender notices with website, digital platform, accessibility, WCAG, inclusive design or software signals.",
+            },
+        ],
+    }
+    (PACKS_DIR / "index.json").write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    _write_zip(PACKS_DIR, PACKS_DIR / "indexridge-public-data-pack-sample.zip", "IndexRidge public-data pack preview sample")
+
+    # Full pack for Gumroad upload is deliberately ignored by git and not linked publicly.
+    for name in [
+        "data-pack-procurement-opportunities.csv",
+        "data-pack-green-energy-tenders.csv",
+        "data-pack-accessibility-digital-tenders.csv",
+        "tender_signals_sample.json",
+        "source_licences.json",
+    ]:
+        (GUMROAD_UPLOAD_DIR / name).write_bytes((OUTPUTS_DIR / name).read_bytes())
+    gumroad_zip = GUMROAD_UPLOAD_DIR / "indexridge-uk-tender-signals-starter-pack-latest.zip"
+    _write_zip(GUMROAD_UPLOAD_DIR, gumroad_zip, "IndexRidge UK Tender Signals Starter Pack")
+    manifest = {
+        "generated_at_utc": generated_at,
+        "gumroad_upload_zip": str(gumroad_zip),
+        "full_records": len(signals),
+        "public_preview_records": len(public_signals),
+        "days": days,
+        "disclaimer": DISCLAIMER,
+    }
+    (GUMROAD_UPLOAD_DIR / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return gumroad_zip
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Fetch tender signals and generate public-data packs")
     parser.add_argument("--days", type=int, default=14, help="Published date window in days")
+    parser.add_argument(
+        "--public-preview-limit",
+        type=int,
+        default=20,
+        help="Maximum number of matched records to publish in public preview packs",
+    )
     args = parser.parse_args()
     if args.days < 1 or args.days > 60:
         parser.error("--days must be between 1 and 60")
+    if args.public_preview_limit < 1 or args.public_preview_limit > 100:
+        parser.error("--public-preview-limit must be between 1 and 100")
     payload = fetch_json(args.days)
     signals = list(iter_signals(payload))
-    write_outputs(signals, payload, args.days)
+    gumroad_zip = write_outputs(signals, payload, args.days, args.public_preview_limit)
     print(
         "OK",
         f"days={args.days}",
         f"source_releases={len(payload.get('releases') or [])}",
         f"matching_records={len(signals)}",
+        f"public_preview_records={min(len(signals), args.public_preview_limit)}",
         f"pack_dir={PACKS_DIR}",
+        f"gumroad_upload_zip={gumroad_zip}",
     )
     if not signals:
         print("WARNING: no matching tender signals found; increase --days or adjust keywords")

@@ -41,6 +41,14 @@ Generated public files are written to `packs/`:
 - `index.json`
 - `source_licences.json`
 
+The script also prepares a private, git-ignored Gumroad upload ZIP at:
+
+```text
+commerce/gumroad_upload/indexridge-uk-tender-signals-starter-pack-latest.zip
+```
+
+Public files in `packs/` are preview samples; the Gumroad upload ZIP is not linked publicly.
+
 ## Verification
 
 There is no canonical suite. Use targeted ad-hoc verification for local/public-page changes: Python compile, data fetch, CSV schema/category checks, source licence checks, GitHub Pages `built`, live HTTP 200, expected homepage/data-pack/privacy/terms markers, and clean git tracking status.
@@ -53,3 +61,11 @@ Before making this paid:
 - Add support/refund/cancellation wording.
 - Decide whether the first paid offer is a tender-alert subscription, a one-off data-pack download, or both.
 - Review source coverage and do not claim completeness.
+
+## Commerce setup docs
+
+- Gumroad product listing draft: `commerce/gumroad-product-listing.md`
+- Gumroad click-by-click setup: `commerce/gumroad-click-by-click.md`
+- Payhip click-by-click setup: `commerce/payhip-click-by-click.md`
+- Unbiased platform comparison: `commerce/marketplace-comparison.md`
+- Checkout link updater: `scripts/set_checkout_links.py`

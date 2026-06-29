@@ -4,3 +4,4 @@ __pycache__/
 .env
 .venv/
 outputs/
+commerce/gumroad_upload/

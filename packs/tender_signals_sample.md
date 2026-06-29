@@ -1,12 +1,33 @@
 # Tender Signals Sample Digest
 
-Generated: 2026-06-29T07:44:58+00:00
-Source window: last 14 days from Contracts Finder OCDS Search API
-Matching records: 93
+Generated: 2026-06-29T08:39:18+00:00
+Dataset: public preview sample
+Source window: last 30 days from Contracts Finder OCDS Search API
+Matching records shown: 20
 
 > Informational public-data monitoring only; not legal, procurement, bid-writing, financial, investment, tax, compliance, planning, engineering, environmental, or regulatory advice. Verify against the official notice before acting.
 
 Source: Contracts Finder OCDS Search API. Licence metadata is included in `source_licences.json`.
+
+## Taxi and MPV (1-8 seats) Passenger Assistant - Taxi and MPV (1-8 seats) Passenger Assistant
+
+- Buyer: East Sussex County Council
+- Deadline: 2026-07-02T10:30:00+01:00
+- Categories: sme_suitable
+- CPV: 60000000 Transport services (excl. Waste transport)
+- SME suitable: True
+- Official notice: https://www.contractsfinder.service.gov.uk/Notice/01a357db-0a6b-4c77-a143-8a9aa7a85429
+- Summary: Tender details: Vehicle type: Saloon Passenger Assistant Required: Yes Proposed Taxi Route: From: BN8 5GS To: East Sussex Academy, Hailsham BN27 3NW Frequency: 14:00-15:00 Mon-Thu 12:00-13:00 Fridays Comments for Operat…
+
+## Taxi and MPV (1-8 seats) - Taxi and MPV (1-8 seats)
+
+- Buyer: East Sussex County Council
+- Deadline: 2026-07-02T11:00:00+01:00
+- Categories: sme_suitable
+- CPV: 60000000 Transport services (excl. Waste transport)
+- SME suitable: True
+- Official notice: https://www.contractsfinder.service.gov.uk/Notice/15e5a88c-71c8-45b4-9bb5-e312a776d1f3
+- Summary: Vehicle type: Saloon Passenger Assistant Required: No PA required. Proposed Taxi Route: From: TN31 6PX and TN36 4BX To: Homewood School and Sixth Form, TN30 6LT Frequency: Monday to Friday Daily School Time: Mon-Fri 08:…
 
 ## CA18130 - ROOF CHILLER REPLACEMENT AT UCG PADDINGTON
 
@@ -193,123 +214,3 @@ Source: Contracts Finder OCDS Search API. Licence metadata is included in `sourc
 - SME suitable: True
 - Official notice: https://www.contractsfinder.service.gov.uk/Notice/b90d86bd-734f-45a4-85af-bf259062b5f9
 - Summary: Kier Infrastructure are looking to engage experienced and qualified contractors for the FRC package for the Roundthwaite Box solution in the Central Reservation works on the M6 Lune Gorge Scheme (Approx J38). Package is…
-
-## M6 Lune Gorge - Roundthwaite Box - Steelwork Package
-
-- Buyer: KIER TRANSPORTATION LIMITED
-- Deadline: 2026-06-30T17:00:00+01:00
-- Categories: sme_suitable
-- CPV: 45223210 Structural steelworks
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/f2e56727-8ec2-4e63-84f0-aa3f825a5014
-- Summary: Kier Infrastructure are looking to engage experienced and qualified contractors for the Steelwork package for Roundthwaite Box solution in the Central Reservation works on the M6 Lune Gorge Scheme (Approx J38). Package…
-
-## M6 Lune Gorge - Roundthwaite Box - Piling Package
-
-- Buyer: KIER TRANSPORTATION LIMITED
-- Deadline: 2026-06-30T17:00:00+01:00
-- Categories: sme_suitable
-- CPV: 44212400 Piling
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/eed33355-8bf3-4e58-99b3-39652662d6b8
-- Summary: Kier Infrastructure are looking to engage experienced and qualified contractors for the Piling package for the Roundthwaite Box solution in the Central Reservation works on the M6 Lune Gorge Scheme (Approx J38). Package…
-
-## CA18126 - RFQ 2026/16 - NMANDD PEACEPLUS
-
-- Buyer: ADB (UK) LIMITED
-- Deadline: 2026-07-23T12:00:00+01:00
-- Categories: sme_suitable
-- CPV: 92000000 Recreational, cultural and sporting services
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/f25a4d63-859a-46f1-bab6-44b818cc9b5b
-- Summary: Competent consultancy companies are hereby invited to tender to design, develop and deliver a structured programme celebrating the history and industrial heritage of Bessbrook. The programme will include a series of exp…
-
-## Ellesmere Town Council Sanitary Disposal and Servicing
-
-- Buyer: ELLESMERE TOWN COUNCIL
-- Deadline: 2026-07-03T17:00:00+01:00
-- Categories: facilities_works;sme_suitable
-- CPV: 75200000 Provision of services to the community
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/dea74f0d-78bf-4bfe-8615-0319951c9d44
-- Summary: To Provide Sanitary Disposal as follows:- Installation and monthly service / exchange of: Site 1 - Ellesmere Town Hall 4 Slimline Feminine Sanitary Units. 1 Nappy Unit 1 Dual Vending Machine 2 Water Management Systems S…
-
-## Two Play Park Upgrade Projects
-
-- Buyer: Melksham Town Council
-- Deadline: 2026-08-06T12:00:00+01:00
-- Categories: accessibility_digital
-- CPV: 37535200 Playground equipment
-- SME suitable: False
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/8284d2cd-3b24-48aa-a2b1-f4e8d8083901
-- Summary: Redevelopment of two play spaces in Melksham: Dunch Lane Play Park, designed for children aged 0-4 years, and Riverside Play Park, designed for children aged 5 and over. Together, the project aims to deliver high-qualit…
-
-## M2627-15 - REPLACEMENT OF COMPLETE DOOR ENTRY INTERCOM SYSTEM WITH IP GUARD SYSTEM
-
-- Buyer: Southend City Council
-- Deadline: 2026-07-24T12:00:00+01:00
-- Categories: sme_suitable
-- CPV: 32360000 Intercom equipment
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/13aec17a-3754-485b-ba2b-4c6acaa339a5
-- Summary: Supply, Install & configure IP Door Entry System IPGUARD Additional information: All documents are freely available on https://procontract.due-north.com/
-
-## CA18126 - RFQ 2026/06 - NMANDD PEACEPLUS "Thriving Together" - Woven Through Time - Exploring the Shared Heritage of Bessbrook
-
-- Buyer: Newry, Mourne and Down District Council (NMD)
-- Deadline: 2026-07-23T12:00:00+01:00
-- Categories: sme_suitable
-- CPV: 92000000 Recreational, cultural and sporting services
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/f25a4d63-859a-46f1-bab6-44b818cc9b5b
-- Summary: Competent consultancy companies are hereby invited to tender to design, develop and deliver a structured programme celebrating the history and industrial heritage of Bessbrook. The programme will include a series of exp…
-
-## CA18125 - Tresham Kettering Campus Heating & Hot Water Upgrade Project
-
-- Buyer: Bedford College
-- Deadline: 2026-07-20T12:00:00+01:00
-- Categories: facilities_works;sme_suitable
-- CPV: 45315000 Electrical installation work of heating and other electrical building-equipment
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/b82e0471-4a75-4657-8e84-3d525bcb2f85
-- Summary: Tresham Kettering Campus Heating & Hot Water Upgrade Project. To access this competition: Registered: Login to https://suppliers.multiquote.com and view the opportunity CA18125. Not registered: Visit https://suppliers.m…
-
-## Procurement of services of retrofitting with PZSA-3 protection level of a cargo van (2 pcs)
-
-- Buyer: Chemonics International, Inc.
-- Deadline: 2026-07-10T15:00:00+01:00
-- Categories: green_energy;sme_suitable
-- CPV: 34000000 Transport equipment and auxiliary products to transportation
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/5489804f-e663-4d7c-92c8-81c5001511ad
-- Summary: Dear Sir/Madam, Chemonics Group UK Limited, implementing the project "Partnership Fund for a Resilient Ukraine" Phase 2 (PFRU-2) referred under the international technical assistance, invites you to submit a proposal fo…
-
-## GB-Sheffield: 5095.EFM.SW Diamond Chiller Replacement
-
-- Buyer: The University of Sheffield
-- Deadline: 2026-07-17T12:00:00+01:00
-- Categories: facilities_works;sme_suitable
-- CPV: 45310000 Electrical installation work
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/c500e12a-e857-457d-b44d-abf8a4789ad4
-- Summary: The project comprises the replacement of 3nr. chiller units on the Diamond Building Roof. Specifically: •System 1: Comprises 2nr. chiller units. Air handling unit cooling coil systems. •System 2: Comprises 1nr. chiller…
-
-## Provision of Allograft Products
-
-- Buyer: Queen Victoria Hospital NHS Foundation Trust
-- Deadline: 2026-07-27T12:00:00+01:00
-- Categories: accessibility_digital
-- CPV: 85146200 Services provided by transplant organ banks
-- SME suitable: False
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/ccd498b2-9085-4f09-a332-f80178b41f39
-- Summary: Provision of Allograft Products to Queen Victoria Hospital NHS Foundation Trust Additional information: To express interest and participate in the tender, please register and apply via Atamis e-sourcing portal https://h…
-
-## Enabling offshore wind port development and investment
-
-- Buyer: PALLADIUM INTERNATIONAL LIMITED
-- Deadline: 2026-07-13T17:00:00+01:00
-- Categories: facilities_works;green_energy;sme_suitable
-- CPV: 31000000 Electrical machinery, apparatus, equipment and consumables; lighting
-- SME suitable: True
-- Official notice: https://www.contractsfinder.service.gov.uk/Notice/e6168f0c-d23e-4fe6-a6bd-078b229abb71
-- Summary: Palladium as the delivery partner for the Foreign, Commonwealth and Development Office (FCDO) funded UK Partnering for Accelerate Climate Transitions (UK PACT) programme invites you to submit a quotation for the service…
