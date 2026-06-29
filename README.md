@@ -57,7 +57,9 @@ There is no canonical suite. Use targeted ad-hoc verification for local/public-p
 
 - First paid product: Gumroad one-off starter data pack.
 - Gumroad URL: `https://indexridge.gumroad.com/l/indexridge-uk-tender-signals-starter-pack`
+- Checkout CTA URL uses `https://indexridge.gumroad.com/l/indexridge-uk-tender-signals-starter-pack/WEEK1` while the universal `WEEK1` intro code remains valid.
 - Product price: £9.
+- Current intro offer: `WEEK1` gives 20% off eligible paid IndexRidge Gumroad products for the first 20 redemptions.
 - Current public checkout is self-serve only; no subscription, outreach, ads, calls, bespoke support, or managed procurement service is active.
 - Keep source coverage conservative and do not claim completeness.
 
