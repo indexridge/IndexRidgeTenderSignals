@@ -7,6 +7,8 @@ Objective summary for IndexRidge Tender Signals / Public Data Packs.
 - **Best if you need marketplace/discovery:** Gumroad. It has Gumroad search/Discover and is closer to a marketplace, but fees are higher and organic discovery is not guaranteed.
 - **Best if we drive traffic ourselves from GitHub Pages/SEO/email/ads:** Payhip. It is usually lower-fee on the free plan, but it is more of a storefront/checkout than a marketplace.
 
+Plain summary: Best if you need marketplace/discovery: Gumroad. Best if we drive traffic ourselves from GitHub Pages/SEO/email/ads: Payhip.
+
 For this project, start with **Gumroad first** because the user asked for Gumroad and because marketplace/discovery is more valuable before we have our own traffic. Add Payhip later as a lower-fee direct checkout if the public pages start getting visits.
 
 ## Fee and discovery notes to re-check before launch
