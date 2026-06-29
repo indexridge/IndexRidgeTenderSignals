@@ -2,6 +2,8 @@
 
 ## Phase 1 — public beta validation
 
+Free public beta only: no payment, no signup, no analytics, no ads, and no outreach.
+
 - [x] Create local project.
 - [x] Add risk/copyright policy.
 - [x] Register official/open procurement source.
